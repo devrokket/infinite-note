@@ -23,8 +23,14 @@ import sys
 nnn = 1
 
 
+def output_question():
+    msg = "도전! 입력된 문제를 랜덤으로 출력하고 답을 입력 받습니다"
+    print(msg)
+
+
 def input_question():
-    print("문제를 입력하세요!")
+    a = input("문제를 입력하세요!")
+    print(a)
 
 
 def ping():
