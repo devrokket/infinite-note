@@ -23,6 +23,10 @@ import sys
 nnn = 1
 
 
+def input_question():
+    print("문제를 입력하세요!")
+
+
 def ping():
     """Example function with PEP 484 type annotations.
 
