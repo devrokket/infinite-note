@@ -50,12 +50,11 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:mermaid2.fence_mermaid
   - pymdownx.progressbar
-  - fontawesome_markdown
 
 extra:
   analytics:
     provider: google
-    property: 
+    property:
 
 extra_javascript:
     - https://unpkg.com/mermaid@8.7.0/dist/mermaid.min.js
@@ -64,4 +63,3 @@ nav:
   - 'Introduction': 'index.md'
   - 'infinite_note Docstring': docs.md
   - 'Issue Tracker': 'https://github.com/offtheface/infinite-note/issues'
-

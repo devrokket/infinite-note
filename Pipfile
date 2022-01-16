@@ -4,17 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-mkdocs = "*"
-mkdocstrings = "*"
-mkdocs-material = "*"
-mkdocs-mermaid2-plugin = "*"
-fontawesome-markdown = "*"
 
 [dev-packages]
 pytest = "*"
 pytest-cov = "*"
 build = "*"
 twine = "*"
+mkdocs = "*"
+mkdocstrings = "*"
+mkdocs-material = "*"
+mkdocs-mermaid2-plugin = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.10"
