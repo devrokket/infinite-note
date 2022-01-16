@@ -1,0 +1,67 @@
+site_name: infinite_note
+site_url: https://offtheface.github.io/infinite-note
+repo_url: https://github.com/offtheface/infinite-note
+repo_name: offtheface/infinite-note
+
+theme:
+  logo: img/logo.png
+  favicon: img/favicon-16x16.png
+  name: "material"
+  language: kr
+  features:
+    - navigation.sections
+    - navigation.top
+    - toc.integrate
+  palette:
+    - scheme: default
+      toggle:
+        primary: white
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+
+plugins:
+  - search
+  - mermaid2:
+      version: 8.6.4
+  - mkdocstrings:
+      handlers:
+        python:
+          setup_commands:
+            - import sys
+            - sys.path.append("src")
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.emoji
+  - pymdownx.pathconverter
+  - pymdownx.smartsymbols
+  - pymdownx.tabbed
+  - pymdownx.highlight
+  - pymdownx.superfences:
+      # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+  - pymdownx.progressbar
+  - fontawesome_markdown
+
+extra:
+  analytics:
+    provider: google
+    property: 
+
+extra_javascript:
+    - https://unpkg.com/mermaid@8.7.0/dist/mermaid.min.js
+
+nav:
+  - 'Introduction': 'index.md'
+  - 'infinite_note Docstring': docs.md
+  - 'Issue Tracker': 'https://github.com/offtheface/infinite-note/issues'
+
