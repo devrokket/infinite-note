@@ -1,7 +1,9 @@
 import os.path
+import random
 
+INF_QUESTION_FILE_NAME = 'inf-question.txt'
 
-def save_question(msg, file_name='inf-question.txt'):
+def save_question(msg, file_name=INF_QUESTION_FILE_NAME):
     """입력받은 메시지를 파일로 저장한다.
     1. 파일이 없으면 만든다. 만드는 위치는 홈디렉토리 아래이다.
     2. 파일이 있으면 파일 내용 맨 아래에 입력된 MSG 를 추가한다.
@@ -29,7 +31,7 @@ def get_home_dir():
     return home_dir
 
 
-def count_file_line(file_name='inf-question.txt') -> int:
+def count_file_line(file_name=INF_QUESTION_FILE_NAME) -> int:
     """홈데렉토리에 생성되는 파일의 라인 카운트 리턴
 
     Args:
@@ -38,11 +40,8 @@ def count_file_line(file_name='inf-question.txt') -> int:
     Returns:
 
     """
-    len_file_line = 0
-    home_dir = get_home_dir()
-    with open(f"{home_dir}/{file_name}", "r") as f:
-        len_file_line = len(f.readlines())
-    return len_file_line
+    l = extract_all_line(file_name)
+    return len(l)
 
 
 def delete_file(file_name):
@@ -62,3 +61,24 @@ def delete_file(file_name):
         return True
     else:
         return False
+
+
+def get_random_line(file_name=INF_QUESTION_FILE_NAME) -> str:
+    """문제가 저장된 파일/디비에서 랜덤하게 하나의 문제를 뽑아준다
+
+    Args:
+        file_name: 문제가 저장된 파일명
+
+    Returns:
+
+    """
+    list_lines = extract_all_line(file_name=file_name)
+    return random.choice(list_lines)
+
+
+def extract_all_line(file_name=INF_QUESTION_FILE_NAME) -> list:
+    """파일 내용을 리스트로 반환"""
+    home_dir = get_home_dir()
+    with open(f"{home_dir}/{file_name}", "r") as f:
+        list_lines = f.readlines()
+        return list_lines

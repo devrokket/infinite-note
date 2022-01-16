@@ -19,21 +19,28 @@ Todo:
 
 """
 import sys
-from infinite_note.file.file_manager import save_question, count_file_line
+from infinite_note.file.file_manager import save_question, count_file_line, get_random_line
 
 nnn = 1
 
 
 def output_question():
-    msg = "도전! 입력된 문제를 랜덤으로 출력하고 답을 입력 받습니다"
-    print(msg)
+    q = get_random_line()
+    print("아래 문제를 보고 답을 입력하세요")
+    print(q)
+    a = input("->")
+
+
+def count_question():
+    count = count_file_line()
+    print(f'총 저장된 문제는 ({count})건 입니다.')
 
 
 def input_question():
-    question = input("문제를 입력하세요!")
+    question = input("문제를 입력하세요:")
     save_question(msg=question)
-    count = count_file_line()
-    print(f'입력하신 문제({question})를 저장 하였습니다. 총 저장된 문제는 ({count})건 입니다.')
+    print(f'입력하신 문제({question})를 저장 하였습니다.')
+    count_question()
 
 
 def ping():

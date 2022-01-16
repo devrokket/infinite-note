@@ -46,6 +46,14 @@ def test_delete_file():
     assert r
 
 
+def test_get_random_line():
+    l = file_manager.extract_all_line()
+
+    for i in range(10):
+        r = file_manager.get_random_line()
+        assert r in l
+        assert len(r) > 10
+
 
 
 
