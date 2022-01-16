@@ -1,12 +1,12 @@
-"""infinite_note 모듈.
+"""무한 노트
 
-Please put in a description of the module.
+문제를 입력하고 풀고 오답노트를 관리한다.
 
 Example:
     ``infinite_note`` 사용법은 아래와 같습니다.
 
-        $ pip install ./
-        $ infinite_note-ping
+        $ pip install infinite_note
+        $ inf-note-input
 
 추가적인 설명은 여기에!
 
@@ -19,6 +19,7 @@ Todo:
 
 """
 import sys
+from infinite_note.file.file_manager import save_question, count_file_line
 
 nnn = 1
 
@@ -29,8 +30,10 @@ def output_question():
 
 
 def input_question():
-    a = input("문제를 입력하세요!")
-    print(a)
+    question = input("문제를 입력하세요!")
+    save_question(msg=question)
+    count = count_file_line()
+    print(f'입력하신 문제({question})를 저장 하였습니다. 총 저장된 문제는 ({count})건 입니다.')
 
 
 def ping():
