@@ -1,5 +1,6 @@
 import os.path
 
+
 def save_question(msg, file_name='inf-question.txt'):
     """입력받은 메시지를 파일로 저장한다.
     1. 파일이 없으면 만든다. 만드는 위치는 홈디렉토리 아래이다.
@@ -19,5 +20,45 @@ def save_question(msg, file_name='inf-question.txt'):
 
 
 def get_home_dir():
+    """홈 디렉토리 경록 갖여오기
+
+    Returns:
+
+    """
     home_dir = os.path.expanduser('~')
     return home_dir
+
+
+def count_file_line(file_name='inf-question.txt') -> int:
+    """홈데렉토리에 생성되는 파일의 라인 카운트 리턴
+
+    Args:
+        file_name:
+
+    Returns:
+
+    """
+    len_file_line = 0
+    home_dir = get_home_dir()
+    with open(f"{home_dir}/{file_name}", "r") as f:
+        len_file_line = len(f.readlines())
+    return len_file_line
+
+
+def delete_file(file_name):
+    """파일 삭제 기능
+
+    Args:
+        file_name: 삭제할 파일 이름, 파일은 홈디렉토리에 있다고 가정한다.
+
+    Returns: 파일이 없으면 False 반환
+
+    """
+    home_dir = get_home_dir()
+    file_full_path = f"{home_dir}/{file_name}"
+    # file_full_path = home_dir + "/" + file_name
+    if os.path.isfile(file_full_path):
+        os.remove(file_full_path)
+        return True
+    else:
+        return False
