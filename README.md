@@ -9,6 +9,21 @@
  - inf-note-count = 입력된 문제 갯수 확인
  - inf-note-answer = 입력된 문제 출력 및 답안 저장
 
+# 개발환경 설정
+- pip install pipenv
+- pipenv shell
+- pipenv install
+- pipenv install --dev
+
+# 테스트
+- sh test.sh
+
+# pip 배포
+- sh deploy_pip.sh
+
+# 개발자 가이드 배포
+- sh deploy_gitpage.sh
+
 # 개발자 가이드
 - [https://offtheface.github.io/infinite-note](https://offtheface.github.io/infinite-note)
 
