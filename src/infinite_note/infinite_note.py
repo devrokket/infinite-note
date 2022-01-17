@@ -24,7 +24,7 @@ import sys
 """
 sys 모듈? 파이썬 인터프리터가 제공하는 변수와 함수를 직접 제어할 수 있게 해주는 모듈이다.
 """
-from infinite_note.file.file_manager import save_question, count_file_line, get_random_line, extract_all_line
+from infinite_note.file.file_manager import save_msg2file, count_file_line, get_random_line, extract_all_line
 # import infinite_note.file.file_manager as fm
 
 nnn = 1
@@ -58,7 +58,7 @@ def answer_question():
 
     질문_콤마_답 = join_comma_str(질문, 답)
 
-    save_question(질문_콤마_답, file_name='inf-answer.txt')
+    save_msg2file(질문_콤마_답, file_name='inf-answer.txt')
     print('문제와 제출한 답안이 저장되었습니다')
 
 
@@ -77,7 +77,7 @@ def count_question():
 
 def input_question():
     question = input("문제를 입력하세요:")
-    save_question(msg=question)
+    save_msg2file(msg=question)
     print(f'입력하신 문제({question})를 저장 하였습니다.')
     count_question()
 

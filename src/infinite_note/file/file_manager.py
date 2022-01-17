@@ -4,7 +4,7 @@ import random
 INF_QUESTION_FILE_NAME = 'inf-question.txt'
 
 
-def save_question(msg, file_name=INF_QUESTION_FILE_NAME):
+def save_msg2file(msg, file_name=INF_QUESTION_FILE_NAME):
     """
     입력받은 메시지를 파일로 저장한다.
     1. 파일이 없으면 만든다. 만드는 위치는 홈디렉토리 아래이다. - pip 이용 사용자에 따라 본인의 홈 디렉토리에 저장할 수 있도록 함.

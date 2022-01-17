@@ -9,7 +9,7 @@ def test_save_question():
     home_dir = file_manager.get_home_dir()
 
     # when
-    file_manager.save_question(msg=msg, file_name=file_name)
+    file_manager.save_msg2file(msg=msg, file_name=file_name)
 
     # then
     # 파일유무 확인
@@ -27,9 +27,9 @@ def test_count_file_line():
     file_manager.delete_file(file_name)
 
     # when
-    file_manager.save_question(msg=f"{msg}-1", file_name=file_name)
-    file_manager.save_question(msg=f"{msg}-2", file_name=file_name)
-    file_manager.save_question(msg=f"{msg}-3", file_name=file_name)
+    file_manager.save_msg2file(msg=f"{msg}-1", file_name=file_name)
+    file_manager.save_msg2file(msg=f"{msg}-2", file_name=file_name)
+    file_manager.save_msg2file(msg=f"{msg}-3", file_name=file_name)
 
     # then
     count = file_manager.count_file_line(file_name=file_name)
@@ -41,7 +41,7 @@ def test_delete_file():
     r = file_manager.delete_file(file_name)
     assert not r
 
-    file_manager.save_question(msg="any", file_name=file_name)
+    file_manager.save_msg2file(msg="any", file_name=file_name)
     r = file_manager.delete_file(file_name)
     assert r
 

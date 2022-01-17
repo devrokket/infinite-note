@@ -19,7 +19,7 @@ Todo:
 
 """
 import sys
-from infinite_note.file.file_manager import save_question, count_file_line, get_random_line
+from infinite_note.file.file_manager import save_msg2file, count_file_line, get_random_line
 
 nnn = 1
 
@@ -38,7 +38,7 @@ def count_question():
 
 def input_question():
     question = input("문제를 입력하세요:")
-    save_question(msg=question)
+    save_msg2file(msg=question)
     print(f'입력하신 문제({question})를 저장 하였습니다.')
     count_question()
 
