@@ -209,6 +209,16 @@
 <nav aria-label="infinite_note" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#infinite_note.infinite_note.answer_question">
+    answer_question()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#infinite_note.infinite_note.output_question">
+    output_question()
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#infinite_note.infinite_note.ping">
     ping()
   </a>
@@ -370,11 +380,11 @@ I will make a world with you.</p>
 <code class="highlight language-python"><span class="n">get_home_dir</span><span class="p">()</span></code>
 </h4>
 <div class="doc doc-contents">
-<p>홈 디렉토리 경록 갖여오기</p>
+<p>홈 디렉토리 경로 가져오기</p>
 <details class="quote">
 <summary>Source code in <code>infinite_note\file\file_manager.py</code></summary>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_home_dir</span><span class="p">():</span>
-    <span class="sd">"""홈 디렉토리 경록 갖여오기</span>
+    <span class="sd">"""홈 디렉토리 경로 가져오기</span>
 
 <span class="sd">    Returns:</span>
 
@@ -433,7 +443,7 @@ I will make a world with you.</p>
 </h4>
 <div class="doc doc-contents">
 <p>입력받은 메시지를 파일로 저장한다.
-1. 파일이 없으면 만든다. 만드는 위치는 홈디렉토리 아래이다.
+1. 파일이 없으면 만든다. 만드는 위치는 홈디렉토리 아래이다. - pip 이용 사용자에 따라 본인의 홈 디렉토리에 저장할 수 있도록 함.
 2. 파일이 있으면 파일 내용 맨 아래에 입력된 MSG 를 추가한다.</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -463,8 +473,9 @@ I will make a world with you.</p>
 <details class="quote">
 <summary>Source code in <code>infinite_note\file\file_manager.py</code></summary>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">save_question</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="n">INF_QUESTION_FILE_NAME</span><span class="p">):</span>
-    <span class="sd">"""입력받은 메시지를 파일로 저장한다.</span>
-<span class="sd">    1. 파일이 없으면 만든다. 만드는 위치는 홈디렉토리 아래이다.</span>
+    <span class="sd">"""</span>
+<span class="sd">    입력받은 메시지를 파일로 저장한다.</span>
+<span class="sd">    1. 파일이 없으면 만든다. 만드는 위치는 홈디렉토리 아래이다. - pip 이용 사용자에 따라 본인의 홈 디렉토리에 저장할 수 있도록 함.</span>
 <span class="sd">    2. 파일이 있으면 파일 내용 맨 아래에 입력된 MSG 를 추가한다.</span>
 
 <span class="sd">    Args:</span>
@@ -499,6 +510,8 @@ I will make a world with you.</p>
 <p><code>infinite_note</code> 사용법은 아래와 같습니다.</p>
 <div class="highlight"><pre><span></span><code>$ pip install infinite_note
 $ inf-note-input
+$ inf-note-count
+$ inf-note-challenge
 </code></pre></div>
 <p>추가적인 설명은 여기에!</p>
 <p><strong>Attributes:</strong></p>
@@ -525,6 +538,55 @@ $ inf-note-input
 </ul>
 </div>
 <div class="doc doc-children">
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="infinite_note.infinite_note.answer_question">
+<code class="highlight language-python"><span class="n">answer_question</span><span class="p">()</span></code>
+</h3>
+<div class="doc doc-contents">
+<p>답을 받아서 질문과 짝을 지어준다.
+input("-&gt;") = answer 변수에 담는다.
+save_question(answer, INF_QUESTION_FILE_NAME) 파일에 저장한다.
+? 질문과 답을 같이 배치한다.</p>
+<details class="quote">
+<summary>Source code in <code>infinite_note\infinite_note.py</code></summary>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">answer_question</span><span class="p">():</span>
+    <span class="sd">"""답을 받아서 질문과 짝을 지어준다.</span>
+<span class="sd">    input("-&gt;") = answer 변수에 담는다.</span>
+<span class="sd">    save_question(answer, INF_QUESTION_FILE_NAME) 파일에 저장한다.</span>
+<span class="sd">    ? 질문과 답을 같이 배치한다.</span>
+<span class="sd">    Returns:</span>
+
+<span class="sd">    """</span>
+    <span class="n">질문</span> <span class="o">=</span> <span class="n">output_question</span><span class="p">()</span>
+    <span class="n">답</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"-&gt;"</span><span class="p">)</span>
+
+    <span class="n">remove_new_line_질문</span> <span class="o">=</span> <span class="n">질문</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+    <span class="n">질문_콤마_답</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">remove_new_line_질문</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">답</span><span class="si">}</span><span class="s2">"</span>
+
+    <span class="n">save_question</span><span class="p">(</span><span class="n">질문_콤마_답</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">'inf-answer.txt'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'문제와 제출한 답안이 저장되었습니다'</span><span class="p">)</span>
+</code></pre></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="infinite_note.infinite_note.output_question">
+<code class="highlight language-python"><span class="n">output_question</span><span class="p">()</span></code>
+</h3>
+<div class="doc doc-contents">
+<p>문제 은행에서 한 문제를 꺼내서 화면에서 출력하고 리턴도 해준다.</p>
+<details class="quote">
+<summary>Source code in <code>infinite_note\infinite_note.py</code></summary>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">output_question</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">"""문제 은행에서 한 문제를 꺼내서 화면에서 출력하고 리턴도 해준다."""</span>
+    <span class="n">질문</span> <span class="o">=</span> <span class="n">get_random_line</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"아래 문제를 보고 답을 입력하세요"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">질문</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">질문</span>
+</code></pre></div>
+</details>
+</div>
+</div>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="infinite_note.infinite_note.ping">
 <code class="highlight language-python"><span class="n">ping</span><span class="p">()</span></code>
