@@ -3,11 +3,9 @@ import random
 
 INF_QUESTION_FILE_NAME = 'inf-question.txt'
 
-
 def save_question(msg, file_name=INF_QUESTION_FILE_NAME):
-    """
-    입력받은 메시지를 파일로 저장한다.
-    1. 파일이 없으면 만든다. 만드는 위치는 홈디렉토리 아래이다. - pip 이용 사용자에 따라 본인의 홈 디렉토리에 저장할 수 있도록 함.
+    """입력받은 메시지를 파일로 저장한다.
+    1. 파일이 없으면 만든다. 만드는 위치는 홈디렉토리 아래이다.
     2. 파일이 있으면 파일 내용 맨 아래에 입력된 MSG 를 추가한다.
 
     Args:
@@ -24,7 +22,7 @@ def save_question(msg, file_name=INF_QUESTION_FILE_NAME):
 
 
 def get_home_dir():
-    """홈 디렉토리 경로 가져오기
+    """홈 디렉토리 경록 갖여오기
 
     Returns:
 

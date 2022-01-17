@@ -53,7 +53,3 @@ def test_get_random_line():
         r = file_manager.get_random_line()
         assert r in l
         assert len(r) > 10
-
-
-
-
