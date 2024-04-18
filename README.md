@@ -1,30 +1,28 @@
 # infinite_note
-### 문제와 답을 입력하여 정답/오답을 관리하는 콘솔 프로그램
+### A console program for managing questions and answers to track correctness.
 
-# 설치
+# How to install
 - [https://pypi.org/project/infinite_note](https://pypi.org/project/infinite_note)
 
-# 사용법
- - inf-note-input = 문제 입력
- - inf-note-count = 입력된 문제 갯수 확인
- - inf-note-answer = 입력된 문제 출력 및 답안 저장
+# Usage
+- inf-note-input = Enter questions
+- inf-note-count = Check the number of entered questions
+- inf-note-answer = Display entered questions and save answers
 
-# 개발환경 설정
+# Development Environment Setup
 - pip install pipenv
 - pipenv shell
 - pipenv install
 - pipenv install --dev
 
-# 테스트
+# Test
 - sh test.sh
 
-# pip 배포
+# pip deployment
 - sh deploy_pip.sh
 
-# 개발자 가이드 배포
+# Developer Guide Deployment
 - sh deploy_gitpage.sh
 
-# 개발자 가이드
+# Developer Guide
 - [https://offtheface.github.io/infinite-note](https://offtheface.github.io/infinite-note)
-
-![logo](https://offtheface.github.io/infinite-note/img/social_preview.png)
